@@ -1,0 +1,124 @@
+/* ============================= */
+/* AUTH LAYOUT */
+/* ============================= */
+
+.auth-wrapper {
+  height: 100vh;
+  background: #151627;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.auth-wrapper input {
+  width: 320px;
+  font-size: 20px;
+  border-bottom: 2px solid #5b5b67;
+  background: transparent;
+  color: white;
+}
+
+.auth-wrapper input::placeholder {
+  color: #73737d;
+}
+
+/* ============================= */
+/* FADE ANIMATION */
+/* ============================= */
+
+.fade {
+  animation: fadeUp 0.6s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================= */
+/* LINKS */
+/* ============================= */
+
+.link {
+  opacity: 0.7;
+  cursor: pointer;
+  color: #bdbdbd;
+}
+
+.link:hover {
+  opacity: 1;
+}
+
+/* ============================= */
+/* SAME AS PROFILE PAGE BUTTON */
+/* ============================= */
+
+.glow-btn {
+  position: relative;
+  width: 320px;
+  font-size: 26px;
+  padding: 0.6em 3em;
+  border-radius: 500px;
+  background: transparent;
+  border: 2px solid white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.4s ease;
+  z-index: 1;
+  isolation: isolate;      /* 🔑 critical */
+  color: white !important; /* 🔑 force text color */
+  text-align: center;
+}
+
+/* ensure text is always on top */
+.glow-btn span,
+.glow-btn p,
+.glow-btn div {
+  position: relative;
+  z-index: 2;
+  color: white !important;
+}
+
+/* inner dark background */
+.glow-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 500px;
+  background: #151627;
+  z-index: -1;
+}
+
+/* gradient border */
+.glow-btn::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 500px;
+  background: conic-gradient(
+    #ff6868,
+    #f0ff91,
+    #00e3a3,
+    #00d0ff,
+    #5142ff,
+    #8f00ff,
+    #fa00ff,
+    #ff006b
+  );
+  z-index: -2;
+  transition: 0.4s ease;
+}
+
+/* glow on hover */
+.glow-btn:hover::after {
+  inset: -8px;
+  filter: blur(18px);
+}
